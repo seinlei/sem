@@ -1,4 +1,5 @@
-This is the readme file of seinlei. I made workflow this time.  
+ 
+# Software Engineering Methods
 ![workflow](https://github.com/seinlei/sem/actions/workflows/main.yml/badge.svg)
 
 [![LICENSE](https://img.shields.io/github/license/seinlei/sem.svg?style=flat-square)](https://github.com/<github-username>/sem/blob/master/LICENSE)
@@ -6,7 +7,5 @@ This is the readme file of seinlei. I made workflow this time.
 [![Releases](https://img.shields.io/github/release/seinlei/sem/all.svg?style=flat-square)](https://github.com/<github-username>/sem/releases)
 
 
-[//]: # (![GitHub Workflow Status]&#40;https://img.shields.io/github/actions/workflow/status/seinlei/sem/main.yml?branch=develop&#41;)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/seinlei/sem/main.yml?branch=develop)
 
-# Software Engineering Methods
-![GitHub Workflow Status (develop)](https://img.shields.io/github/workflow/status/seinlei/sem/main.yml/<develop>?style=flat-square)
