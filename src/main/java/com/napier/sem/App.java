@@ -4,8 +4,11 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class App {
+    private static final Logger logger = LoggerFactory.getLogger(App.class);
     public static void main(String[] args) {
         // Connect to MongoDB
         try (MongoClient mongoClient = new MongoClient("mongo-dbserver")) {
@@ -26,7 +29,7 @@ public class App {
             System.out.println(myDoc.toJson());
         }
         catch (Exception e) {
-            e.printStackTrace();
+            logger.error("An error occurred", e);
         }
     }
 }
