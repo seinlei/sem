@@ -34,3 +34,9 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 .idea/
+
+#Eclipse files
+
+.classpath
+.project
+.settings/
