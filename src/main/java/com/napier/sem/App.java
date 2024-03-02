@@ -106,7 +106,7 @@ public class App
     public void printSalaries(ArrayList<Employee> employees)
     {
         // Print header
-        System.out.println(String.format ("%-10s %-15s %-20s %-8s", "Emp No", "First Name", "Last Name", "Salary"));
+        System.out.println(String.format("%-10s %-15s %-20s %-8s", "Emp No", "First Name", "Last Name", "Salary"));
         // Loop over all employees in the list
         for (Employee emp : employees)
         {
