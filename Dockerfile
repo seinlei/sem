@@ -5,7 +5,7 @@ FROM openjdk:latest
 WORKDIR /tmp
 
 # Copy the JAR file to the working directory of the container
-COPY target/seMethods-0.1.0.2-jar-with-dependencies.jar /tmp/
+COPY target/seMethods-0.1.0.4-jar-with-dependencies.jar /tmp/
 
 # Set the entry point
-ENTRYPOINT ["java", "-jar", "seMethods-0.1.0.2-jar-with-dependencies.jar"]
+ENTRYPOINT ["java", "-jar", "seMethods-0.1.0.4-jar-with-dependencies.jar"]
