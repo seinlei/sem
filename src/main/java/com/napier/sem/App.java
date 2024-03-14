@@ -5,32 +5,28 @@ import java.util.ArrayList;
 
 public class App
 {
-    public static void main(String[] args)
-    {
-        // Create new Application
+    private Connection con = null;
+    public static void main(String[] args) {
+        // Create new Application and connect to database
         App a = new App();
 
-        // Connect to database
-        a.connect();
+        if(args.length < 1){
+            a.connect("localhost:33060", 30000);
+        }else{
+            a.connect("db:3306" , 30000);
+        }
 
-        // Extract employee salary information
-        ArrayList<Employee> employees = a.getAllSalaries();
+        ArrayList<Employee> employees = a.getSalariesByDepartment();
 
-       a.printSalaries(employees);
+
+        // Print salary report
+        a.printSalaries(employees);
 
         // Disconnect from database
         a.disconnect();
     }
-        /**
-         * Connection to MySQL database.
-         */
-        private Connection con = null;
 
-        /**
-         * Connect to the MySQL database.
-         */
-        public void connect ()
-        {
+    public void connect(String location, int delay) {
             try {
                 // Load Database driver
                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -44,13 +40,15 @@ public class App
                 System.out.println("Connecting to database...");
                 try {
                     // Wait a bit for db to start
-                    Thread.sleep(30000);
+                    Thread.sleep(delay);
                     // Connect to database
-                    con = DriverManager.getConnection("jdbc:mysql://db:3306/employees?useSSL=false", "root", "example");
+                    con = DriverManager.getConnection("jdbc:mysql://" + location
+                                    + "/employees?allowPublicKeyRetrieval=true&useSSL=false",
+                            "root", "example");
                     System.out.println("Successfully connected");
                     break;
                 } catch (SQLException sqle) {
-                    System.out.println("Failed to connect to database attempt " + i);
+                    System.out.println("Failed to connect to database attempt " +                                  Integer.toString(i));
                     System.out.println(sqle.getMessage());
                 } catch (InterruptedException ie) {
                     System.out.println("Thread interrupted? Should not happen.");
@@ -58,12 +56,7 @@ public class App
             }
         }
 
-        
-        /**
-         * Gets all the current employees and salaries.
-         * @return A list of all employees and salaries, or null if there is an error.
-         */
-    public ArrayList<Employee> getAllSalaries()
+    public ArrayList<Employee> getSalariesByDepartment()
     {
         try
         {
@@ -98,10 +91,7 @@ public class App
         }
     }
 
-    /**
-     * Prints a list of employees.
-     * @param employees The list of employees to print.
-     */
+
     public void printSalaries(ArrayList<Employee> employees)
     {
         // Check employees is not null
@@ -125,24 +115,24 @@ public class App
     }
 
 
-        /**
-         * Disconnect from the MySQL database.
-         */
-        public void disconnect()
+    /**
+     * Disconnect from the MySQL database.
+     */
+    public void disconnect()
+    {
+        if (con != null)
         {
-            if (con != null)
+            try
             {
-                try
-                {
-                    // Close connection
-                    con.close();
-                }
-                catch (Exception e)
-                {
-                    System.out.println("Error closing connection to database");
-                }
+                // Close connection
+                con.close();
+            }
+            catch (Exception e)
+            {
+                System.out.println("Error closing connection to database");
             }
         }
+    }
 
 
 

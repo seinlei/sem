@@ -1,11 +1,4 @@
-# Use the latest OpenJDK image
 FROM openjdk:latest
-
-# Set the working directory
+COPY ./target/seMethods.jar /tmp
 WORKDIR /tmp
-
-# Copy the JAR file to the working directory of the container
-COPY target/seMethods-0.1.0.4-jar-with-dependencies.jar /tmp/
-
-# Set the entry point
-ENTRYPOINT ["java", "-jar", "seMethods-0.1.0.4-jar-with-dependencies.jar"]
+ENTRYPOINT ["java", "-jar", "seMethods.jar", "db:3306", "30000"]
