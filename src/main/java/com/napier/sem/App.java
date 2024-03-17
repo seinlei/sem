@@ -105,7 +105,7 @@ public class App
         // Loop over all employees in the list
         for (Employee emp : employees)
         {
-            if (emp == null)
+            if( emp == null)
                 continue;
             String emp_string =
                     String.format("%-10s %-15s %-20s %-8s",
