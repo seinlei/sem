@@ -18,7 +18,7 @@ public class AppTest
     @Test
     void printSalaries()
     {
-        ArrayList<Employee> employees = new ArrayList<>();
+        ArrayList<Employee> employees = new ArrayList<Employee>();
         Employee emp = new Employee();
         emp.emp_no = 1;
         emp.first_name = "Kevin";
