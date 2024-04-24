@@ -1,9 +1,8 @@
-name: A workflow for my Hello World App
+name: A workflow for World Population System App
 on:
   push:
     branches:
       - master
-      - develop
 jobs:
   UnitTests:
     name: Unit Tests
@@ -75,7 +74,7 @@ jobs:
           docker-compose up --abort-on-container-exit
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          repo_token: ${{ secrets.MY_PERSONAL_SECRET }}
           prerelease: false
           automatic_release_tag: "latest"
           files: |
