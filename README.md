@@ -7,5 +7,5 @@
 [![Releases](https://img.shields.io/github/release/seinlei/sem/all.svg?style=flat-square)](https://github.com/<github-username>/sem/releases)
 
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/seinlei/sem/main.yml?branch=develop)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/seinlei/sem/main.yml?branch=master)
 
